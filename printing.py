@@ -11,7 +11,7 @@ def print_comparison(name, dates, times, original_data, computed_data):
         computed_data: List of computed data (floats)
     """
     print('                     ORIGINAL     ESTIMATED')
-    print(' DATE       TIME     {name.upper():>9}    {name.upper():>9}    DIFFERENCE')
+    print(f' DATE       TIME     {name.upper():>9}    {name.upper():>9}    DIFFERENCE')
     print('-------    ------    ---------    ---------    ----------')
 
     zip_data = zip(dates, times, original_data, computed_data)
