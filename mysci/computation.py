@@ -1,3 +1,6 @@
+import math
+
+
 def estimate_windchill(t, v):
     """
     Estimate the wind chill factor given the temperature and windspeed
@@ -39,3 +42,25 @@ def compute_heatindex(t, hum):
           (h * t * rh**2) + (i * t**2 * rh**2))
 
     return hi
+
+
+def compute_dewpoint(t, h):
+    """
+    Compute the dew point temperature given the temperature and humidity
+
+    Parameters:
+        t: The temperature in units of F (float)
+        h: The relative humidity in units % (float)
+    """
+
+    tempC = (t -32) * 5 / 9 # Convert temperature from degF to degC
+    rh = h / 100
+
+    b = 18.678
+    c = 257.14 # degC
+
+    gamma = math.log(rh) + (b * tempC) / (c + tempC)
+    tdp = c * gamma / (b - gamma)
+
+    tdp_F = 9/5 * tdp + 32 # Convert temperature from degC to degF
+    return tdp_F
