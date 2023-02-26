@@ -1,17 +1,12 @@
-from readdata import read_data
-from printing import print_comparison
-from computation import estimate_windchill
+from mysci.readdata import read_data
+from mysci.printing import print_comparison
+from mysci.computation import estimate_windchill
 
 # Column names and column indices
 columns = {'date': 0, 'time': 1, 'tempout': 2, 'windspeed': 7, 'windchill': 12}
 
 # Data types for each column (if non-string)
 types = {'tempout': float, 'windspeed': float, 'windchill': float}
-
-# Initialize data variable
-data = {}
-for column in columns:
-    data[column] = []
 
 # Read the data file
 data = read_data(columns, types=types)
